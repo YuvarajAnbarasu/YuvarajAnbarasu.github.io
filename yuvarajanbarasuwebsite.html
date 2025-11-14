@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvaraj Anbarasu - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 30px 60px;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            margin: 0 auto 35px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.25);
+            border: 5px solid #f8fafc;
+            position: relative;
+        }
+        
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            padding: 2px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+        }
+        
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #0f172a;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #64748b;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .bio {
+            font-size: 1.15rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            color: white;
+            text-decoration: none;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-secondary {
+            color: #6366f1;
+            text-decoration: none;
+            padding: 16px 36px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #6366f1;
+            background: #f8fafc;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            color: #6366f1;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Education Cards */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .education-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            gap: 25px;
+            align-items: start;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .education-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .education-card:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+        
+        .education-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .education-details h3 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .education-degree {
+            font-size: 1rem;
+            color: #6366f1;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .education-year {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        .education-honors {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #0f172a;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            color: #475569;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateX(5px);
+            color: #0f172a;
+        }
+        
+        .skill-icon {
+            width: 36px;
+            height: 36px;
+            margin-right: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: white;
+        }
+        
+        .skill-icon img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+        }
+        
+        .project-content {
+            padding: 30px;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+        
+        .project-description {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .project-link {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .project-link-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+        }
+        
+        .project-link-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .project-link-secondary {
+            background: #f8fafc;
+            color: #6366f1;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .project-link-secondary:hover {
+            background: #f1f5f9;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding: 35px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            margin-left: 30px;
+        }
+        
+        .timeline-item:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 40px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 52px;
+            width: 2px;
+            height: calc(100% + 20px);
+            background: linear-gradient(180deg, #e2e8f0, transparent);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        
+        .timeline-company {
+            font-size: 1.1rem;
+            color: #6366f1;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: 500;
+            background: #f8fafc;
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .timeline-description {
+            color: #475569;
+            line-height: 1.8;
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+        
+        .timeline-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            color: #6366f1;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        /* Awards Grid */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .award-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .award-card:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+        
+        .award-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .award-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        
+        .award-description {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 30px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 100px;
+        }
+        
+        footer p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .education-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-item {
+                margin-left: 20px;
+            }
+            
+            .timeline-item::before {
+                left: -30px;
+            }
+            
+            .timeline-item::after {
+                left: -25px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 80px 20px 40px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">YA</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="profile-image">YA</div>
+            <h1>Hi, I'm <span class="gradient-text">Yuvaraj Anbarasu</span></h1>
+            <p class="subtitle">Bachelors in Computer Systems Engineering & MBA Student</p>
+            <p class="bio">
+                Student at the University of Georgia passionate about machine learning, robotics, and data science. 
+                I build innovative solutions at the intersection of engineering and business.
+            </p>
+            <div class="cta-buttons">
+                <a href="#experience" class="btn-primary">View My Work</a>
+                <a href="mailto:anbarasuyuvaraj1@gmail.com" class="btn-secondary">Get In Touch</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/yuvarajanbarasu" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/yuvarajanbarasu" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:ya67015@uga.edu" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Education Section -->
+        <section id="education">
+            <div class="section-header">
+                <div class="section-badge">EDUCATION</div>
+                <h2>Academic Background</h2>
+                <p class="section-description">Building a strong foundation in engineering and business</p>
+            </div>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-logo">🎓</div>
+                    <div class="education-details">
+                        <h3>University of Georgia</h3>
+                        <div class="education-degree">Computer Systems Engineering & MBA (Double Dawgs)</div>
+                        <div class="education-year">Expected May 2029 • GPA: 4.00/4.00</div>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-logo">📚</div>
+                    <div class="education-details">
+                        <h3>Relevant Coursework</h3>
+                        <div class="education-degree">Technical & Analytical Skills</div>
+                        <div class="education-year">Data Science, Differential Equations, Object Oriented Programming</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <div class="section-badge">SKILLS</div>
+                <h2>Technical Expertise</h2>
+                <p class="section-description">Technologies and tools I use to build innovative solutions</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><div class="category-icon">💻</div>Programming Languages</h3>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                        </div>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                        </div>
+                        <span>C++</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+                        </div>
+                        <span>C</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                        </div>
+                        <span>Java</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                        </div>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
+                        </div>
+                        <span>TypeScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift">
+                        </div>
+                        <span>Swift</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R">
+                        </div>
+                        <span>R</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><div class="category-icon">🤖</div>ML & Data Science</h3>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                        </div>
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
+                        </div>
+                        <span>PyTorch</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg" alt="Keras">
+                        </div>
+                        <span>Keras</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
+                        </div>
+                        <span>Pandas</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
+                        </div>
+                        <span>NumPy</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn">
+                        </div>
+                        <span>Scikit-learn</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV">
+                        </div>
+                        <span>OpenCV</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" alt="Matplotlib">
+                        </div>
+                        <span>Matplotlib</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><div class="category-icon">🌐</div>Web & Frameworks</h3>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                        </div>
+                        <span>React</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask">
+                        </div>
+                        <span>Flask</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+                        </div>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                        </div>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" alt="Selenium">
+                        </div>
+                        <span>Selenium</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><div class="category-icon">☁️</div>Cloud & Databases</h3>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud">
+                        </div>
+                        <span>Google Cloud</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
+                        </div>
+                        <span>Firebase</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                        </div>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
+                        </div>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><div class="category-icon">🛠️</div>Tools & Design</h3>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                        </div>
+                        <span>Git & GitHub</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="MATLAB">
+                        </div>
+                        <span>MATLAB</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau">
+                        </div>
+                        <span>Tableau</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+                        </div>
+                        <span>Linux</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" alt="Raspberry Pi">
+                        </div>
+                        <span>Raspberry Pi</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="section-header">
+                <div class="section-badge">EXPERIENCE</div>
+                <h2>Professional Journey</h2>
+                <p class="section-description">Where I've worked and what I've accomplished</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-title">Machine Learning Researcher</div>
+                            <div class="timeline-company">University of Georgia</div>
+                        </div>
+                        <div class="timeline-date">Aug 2025 - Present</div>
+                    </div>
+                    <div class="timeline-description">
+                        • Conducted literature reviews on machine learning and quantitative finance papers to identify gaps and inform experimental design<br>
+                        • Designed and implemented multiple ML prototypes to evaluate intraday and swing-trading signal performance<br>
+                        • Collaborated with Dr. Wang to develop a predictive trading model optimizing short-term equity timing
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Quantitative Finance</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-title">Research Assistant</div>
+                            <div class="timeline-company">Georgia Tech - Scheller College of Business</div>
+                        </div>
+                        <div class="timeline-date">Jun 2024 - May 2025</div>
+                    </div>
+                    <div class="timeline-description">
+                        • Built Python web-scrapers and automated ETL pipelines to consolidate CXO and corporate profile datasets<br>
+                        • Developed an AI-powered chatbot capable of generating therapy-related blog drafts from structured prompts<br>
+                        • Created tools to convert, clean, and analyze large datasets (PDF → JSON → Excel), enabling downstream ML modeling
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Web Scraping</span>
+                        <span class="tag">ETL</span>
+                        <span class="tag">AI</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-title">Lab Intern</div>
+                            <div class="timeline-company">Georgia Tech - Uncommonsense Lab</div>
+                        </div>
+                        <div class="timeline-date">Jun 2024 - May 2025</div>
+                    </div>
+                    <div class="timeline-description">
+                        • Designed and prototyped a soft-robotics knee brace using pneumatic actuators to aid rehabilitation<br>
+                        • Analyzed biomedical literature to guide actuator mechanics and reduce joint stress in injured patients<br>
+                        • Fabricated silicone molds using 3D-printed tooling, increasing prototype throughput by 30%
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="tag">Robotics</span>
+                        <span class="tag">3D Printing</span>
+                        <span class="tag">Biomedical Engineering</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-title">CFO & Co-Founder</div>
+                            <div class="timeline-company">Prime Academy</div>
+                        </div>
+                        <div class="timeline-date">Dec 2023 - May 2025</div>
+                    </div>
+                    <div class="timeline-description">
+                        • Co-founded and operated an online tutoring business, managed tutors, clients, and accounting<br>
+                        • Designed a diagnostic exam covering key concepts from K-12 curriculum to quantify learning gaps
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="tag">Entrepreneurship</span>
+                        <span class="tag">Business Management</span>
+                        <span class="tag">Education</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-title">Firmware Intern</div>
+                            <div class="timeline-company">American Megatrends</div>
+                        </div>
+                        <div class="timeline-date">May 2023 - Aug 2024</div>
+                    </div>
+                    <div class="timeline-description">
+                        • Constructed two BMC images on Raspberry Pi and QEMU Virtual Machines to demonstrate server understanding<br>
+                        • Developed a HEX to JSON converter for SDR records to transform sensor data into human-readable format<br>
+                        • Presented findings at conference to executives and senior developers
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="tag">Firmware</span>
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">BMC</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-title">Data Analytics Intern</div>
+                            <div class="timeline-company">Georgia State University</div>
+                        </div>
+                        <div class="timeline-date">May 2023 - Jul 2023</div>
+                    </div>
+                    <div class="timeline-description">
+                        • Worked with Dr. Frank Lee on data analytics projects using Tableau modeling software<br>
+                        • Developed flight delay prediction project using KNN model achieving 90%+ accuracy<br>
+                        • Created breast cancer prediction KNN model achieving 98%+ accuracy for cell classification
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="tag">Data Analytics</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">KNN</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <div class="section-badge">PROJECTS</div>
+                <h2>Featured Work</h2>
+                <p class="section-description">Personal projects showcasing my technical skills</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        📊
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">GSMST TSA Data Science</h3>
+                        <p class="project-description">
+                            Comprehensive data science project for TSA competition. Worked on machine learning, EDA, and computer vision components as part of a competitive team.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">EDA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/StudioMitesh/GSMSTTSADataScience24" class="project-link project-link-primary">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        🩺
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Breast Cancer Prediction</h3>
+                        <p class="project-description">
+                            KNN machine learning model for breast cancer cell classification achieving 98%+ accuracy. Classifies cells as Benign or Malignant using medical data.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">KNN</span>
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link project-link-primary">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        ✈️
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Flight Delay Prediction</h3>
+                        <p class="project-description">
+                            Data analytics project using KNN model to predict flight delay duration with 90%+ accuracy. Developed during Georgia State University internship.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Data Analytics</span>
+                            <span class="tag">KNN</span>
+                            <span class="tag">Tableau</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link project-link-primary">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        🤖
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">IEEE Micromouse Robot</h3>
+                        <p class="project-description">
+                            Autonomous maze-solving robot with embedded systems, wall detection sensors, and pathfinding algorithms. Active competition project.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Embedded Systems</span>
+                            <span class="tag">Robotics</span>
+                            <span class="tag">IEEE</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link project-link-primary">
+                                <i class="fas fa-external-link-alt"></i> Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        🤖
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Robotics Code Repository</h3>
+                        <p class="project-description">
+                            Comprehensive collection of robotics code and algorithms for autonomous navigation, sensor integration, and motor control systems.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Robotics</span>
+                            <span class="tag">Embedded Systems</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/YuvarajAnbarasu/Robotics-Code-Repository" class="project-link project-link-primary">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        💻
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">BMC Firmware Development</h3>
+                        <p class="project-description">
+                            Documentation and implementation from American Megatrends internship. Includes BMC images, HEX to JSON converter, and server management tools.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Firmware</span>
+                            <span class="tag">BMC</span>
+                            <span class="tag">Raspberry Pi</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/YuvarajAnbarasu/AMI-Internship-and-BMC-Notes" class="project-link project-link-primary">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        🌐
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Old Portfolio Website</h3>
+                        <p class="project-description">
+                            Personal portfolio website showcasing projects, experience, and technical skills with modern web design and responsive layout.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Web Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/YuvarajAnbarasu/YuvarajAnbarasu.github.io" class="project-link project-link-primary">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        🎮
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">BlackJack Game</h3>
+                        <p class="project-description">
+                            Classic BlackJack card game built with Python. Features object-oriented design, game logic, and player vs dealer mechanics.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">Game Dev</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/YuvarajAnbarasu/BlackJack" class="project-link project-link-primary">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        📝
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Wordle Clone</h3>
+                        <p class="project-description">
+                            Python implementation of the popular Wordle word-guessing game. Includes word validation, color-coded feedback, and scoring system.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Game Dev</span>
+                            <span class="tag">Logic</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/YuvarajAnbarasu/Wordle" class="project-link project-link-primary">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Section -->
+        <section id="leadership">
+            <div class="section-header">
+                <div class="section-badge">LEADERSHIP & ACTIVITIES</div>
+                <h2>Beyond the Classroom</h2>
+                <p class="section-description">Clubs, competitions, and extracurricular involvement</p>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">🐭</div>
+                    <div class="award-title">IEEE Micromouse Team</div>
+                    <div class="award-description">
+                        Embedded systems team member creating schematics, circuits, and code for autonomous maze-solving robot
+                    </div>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">⚔️</div>
+                    <div class="award-title">Battlebots - Horizontal Spinner</div>
+                    <div class="award-description">
+                        Team member designing CAD models, planning electrical layouts, and assembling combat robots for competition
+                    </div>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">🤖</div>
+                    <div class="award-title">Claude AI Builders</div>
+                    <div class="award-description">
+                        Active member discussing AI applications in STEM. Won 1st place and $100 prize at club hackathon
+                    </div>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">🏆</div>
+                    <div class="award-title">Zell Miller Scholar</div>
+                    <div class="award-description">
+                        Full tuition scholarship awarded for academic excellence and maintaining 4.0 GPA
+                    </div>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">🎖️</div>
+                    <div class="award-title">Presidential Volunteer Award</div>
+                    <div class="award-description">
+                        Recognized for outstanding community service and volunteer contributions
+                    </div>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">⭐</div>
+                    <div class="award-title">CTAE Student of the Year Semifinalsit</div>
+                    <div class="award-description">
+                        Selected as 1 of 3 students for the CTAE Student of the Year Award
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Yuvaraj Anbarasu. Designed and built with passion.</p>
+        <p style="margin-top: 10px; font-size: 0.85rem;">📍 Athens, GA • Suwanee, GA</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to nav links on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
